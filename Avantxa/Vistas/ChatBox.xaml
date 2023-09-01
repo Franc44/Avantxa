@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rg:PopupPage xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              xmlns:local="clr-namespace:Avantxa.Tools"
+              xmlns:controls="clr-namespace:Avantxa.Controls"
+              xmlns:partials="clr-namespace:Avantxa.Vistas.Partials"
+              mc:Ignorable="d"
+              NavigationPage.HasNavigationBar="False"
+              x:Class="Avantxa.Vistas.ChatBox">
+    <rg:PopupPage.Resources>
+        <ResourceDictionary>
+            <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </rg:PopupPage.Resources>
+
+    <Grid HeightRequest="500"  WidthRequest="300" VerticalOptions="Center" HorizontalOptions="Center">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+        <Frame Grid.RowSpan="2" HeightRequest="400" VerticalOptions="CenterAndExpand" Padding="-2,0" BackgroundColor="White">
+            <Frame.CornerRadius>
+                <OnPlatform x:TypeArguments="x:Single">
+                    <On Platform="iOS" Value="15,15,0,0"/>
+                    <On Platform="Android" Value="15"/>
+                </OnPlatform>
+            </Frame.CornerRadius>
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <yummy:PancakeView BackgroundColor="{StaticResource BlueAV}" CornerRadius="15,15,0,0" HeightRequest="50" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label Text="Mensajes" FontFamily="Abo" FontSize="26" HorizontalTextAlignment="Center"  TextColor="White" VerticalOptions="CenterAndExpand"/>
+                 </yummy:PancakeView>  
+                <StackLayout Orientation="Vertical" Spacing="10" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Grid RowSpacing="0" ColumnSpacing="0" HeightRequest="400" Margin="0,50,0,10" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <controls:ExtendedListView Grid.Row="0"
+                                  BackgroundColor="White"
+                                 ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                                 ItemsSource="{Binding Messages}" 
+                                 Margin="0"
+                                 ItemTapped="OnListTapped"
+                                 Rotation="180" 
+                                 FlowDirection="RightToLeft"
+                                 HasUnevenRows="True" x:Name="ChatList"
+                                 VerticalOptions="FillAndExpand" 
+                                 SeparatorColor="Transparent"
+                                 ItemAppearingCommand="{Binding MessageAppearingCommand}"
+                                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}">
+                         </controls:ExtendedListView>
+                         <Frame HorizontalOptions="EndAndExpand" 
+                                                 Margin="0,0,2,15"
+                                                 VerticalOptions="End"
+                                                 HasShadow="false" 
+                                                 Grid.Row="0"  
+                                                 HeightRequest="50" WidthRequest="50"
+                                                 CornerRadius="25"
+                                                 Padding="1"
+                                                 BackgroundColor="White"   
+                                                 IsVisible="{Binding ShowScrollTap,Mode=TwoWay}">
+                                  <StackLayout Spacing="3">
+                                       <Label Text="{Binding PendingMessageCount}"
+                                              HorizontalOptions="CenterAndExpand"
+                                              IsVisible="{Binding PendingMessageCountVisible}"
+                                              VerticalTextAlignment="Center"
+                                              TextColor="{DynamicResource primary}"/>
+                                        <Image Source="ic_scrolldown"
+                                               WidthRequest="30"
+                                               HeightRequest="30"
+                                               VerticalOptions="CenterAndExpand"/>
+                        
+                                   </StackLayout>
+                                   <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ScrollTap"/>
+                                    </Frame.GestureRecognizers>
+                         </Frame>
+                        <BoxView HorizontalOptions="FillAndExpand"
+                                 HeightRequest="1"
+                                 BackgroundColor="LightGray"
+                                 Grid.Row="1"/>
+                        <partials:ChatInputBarView Grid.Row="2"
+                                                   Margin="0,5,10,0"
+                                                   x:Name="chatInput"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </Grid>
+</rg:PopupPage>

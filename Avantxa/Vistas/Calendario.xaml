@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             xmlns:CalendarSample="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#1c243e"
+             Padding="0,40,0,0"
+             x:Class="Avantxa.Vistas.Calendario"
+             xmlns:Local="clr-namespace:Avantxa.Vistas">
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid Margin="0,0,0,0">
+
+                <StackLayout Margin="20,0,20,0" Spacing="20">
+                    <Label 
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Volver"
+                    TextColor="White"
+                    HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Volver" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Calendario"
+                        FontFamily="Abo"
+                        TextColor="White"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="200" />
+                </StackLayout>
+            </Grid>
+                
+            <yummy:PancakeView  
+            Margin="0,0,0,0"
+            Padding="30,30,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <StackLayout x:Name="Todo">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Agregar recordatorio" TextColor="Black" FontSize="24" FontFamily="Abo"></Label>
+                            <yummy:PancakeView HorizontalOptions="EndAndExpand">
+                                <StackLayout Padding="0,0,0,0">
+                                    <Image Source="masf" WidthRequest="40"/>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Agregar" ></TapGestureRecognizer>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    <CalendarSample:SfCalendar x:Name="calendar" DataSource="{Binding Collcetion}" WidthRequest="200"/>  
+                </StackLayout>
+                    <StackLayout>
+                        <ActivityIndicator x:Name="Activity" IsRunning="False" Color="{StaticResource BlueAV}" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

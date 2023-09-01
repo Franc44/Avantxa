@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:Avantxa.Controls"
+             BackgroundColor="White"
+            x:Class="Avantxa.Vistas.Partials.ChatInputBarView">
+    <Grid RowSpacing="0" BackgroundColor="White"
+           ColumnSpacing="0">
+               <Grid.RowDefinitions>
+                     <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+        <controls:ExtendedEditorControl x:Name="chatTextInput"
+                 Text="{Binding TextToSend}"
+                 BackgroundColor="White"
+                 Margin="1"  
+                 TextColor="Black" 
+                 Keyboard="Chat"  
+                 IsExpandable="true"
+                 HorizontalOptions="FillAndExpand" 
+                 PlaceholderColor="#484848"
+                 Placeholder="Escribe tu mensaje..."
+                 FontFamily="Abo"
+                 Grid.Row="0" 
+                 Grid.Column="0" />
+        <Label Text="Enviar"
+               Grid.Row="0"
+               Grid.Column="1"
+               TextColor="Blue"
+               VerticalTextAlignment="Center"
+               FontFamily="Abo"
+               FontSize="18">
+            <Label.GestureRecognizers> 
+                <TapGestureRecognizer
+                      Command="{Binding OnSendCommand}"
+                      Tapped="Handle_Completed"/>
+           </Label.GestureRecognizers>
+       </Label>
+    </Grid>
+</ContentView>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+              xmlns:renderers="clr-namespace:Avantxa.Renderers"
+             mc:Ignorable="d"
+             Padding="0,40,0,0"
+             x:Class="Avantxa.Vistas.ReqMaterial"
+             BackgroundColor="#1c243e">
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0" >
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Volver"
+                    TextColor="White"
+                    HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Volver"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    Text="Solicitar Material"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Grid>
+            <ActivityIndicator x:Name="Activity" IsVisible="false" IsRunning="False" Color="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <yummy:PancakeView
+            x:Name="Todo"
+            Margin="0,0,0,0"
+            Padding="30,50,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <StackLayout>
+                        <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="22"
+                        Text="Descripción de la solicitud:"
+                        TextColor="Black" />
+                        <StackLayout Spacing="20">
+                            <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="#EEEEFF"
+                            
+                            CornerRadius="15"
+                            HeightRequest="150">
+                                <renderers:BorderlessEditor
+                                FontFamily="Abo"  
+                                x:Name="DesSolicitud"
+                                BackgroundColor="#EEEEFF"
+                                FontSize="22"
+                                Keyboard="Text"
+                                TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="22"
+                        Text="Introduzca los materiales requeridos:"
+                        TextColor="Black" />
+                        <StackLayout Spacing="20">
+                            <yummy:PancakeView
+                            Padding="10,0,0,0"
+                            BackgroundColor="#EEEEFF"
+                            
+                            CornerRadius="15"
+                            HeightRequest="150">
+                                <renderers:BorderlessEditor
+                                FontFamily="Abo"  
+                                x:Name="Material"
+                                BackgroundColor="#EEEEFF"
+                                FontSize="22"
+                                Keyboard="Text"
+                                TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <yummy:PancakeView
+                    BackgroundColor="{StaticResource BlueAV}"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="150">
+                        <Label
+                        FontFamily="Abo"   
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Enviar"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" >
+                        </Label>
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Enviar" ></TapGestureRecognizer>
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

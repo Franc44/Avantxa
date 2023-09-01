@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rg:PopupPage xmlns:rg="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+              xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              mc:Ignorable="d"
+              NavigationPage.HasNavigationBar="False"
+              x:Class="Avantxa.Vistas.MessageBox">
+    <Grid HeightRequest="200"  WidthRequest="300" VerticalOptions="Center" HorizontalOptions="Center">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+        <Frame Grid.RowSpan="2" HeightRequest="200" VerticalOptions="CenterAndExpand" CornerRadius="30" Padding="-2,0" BackgroundColor="White">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <yummy:PancakeView BackgroundColor="{StaticResource BlueAV}" CornerRadius="30,30,0,0" HeightRequest="50" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="LblTitulo" FontFamily="Abo" FontSize="26" HorizontalTextAlignment="Center" Padding="0,13" TextColor="White"/>
+                 </yummy:PancakeView>  
+                <StackLayout Orientation="Vertical" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center"> 
+                    <Label x:Name="LblMensaje" FontFamily="Abo" FontSize="20" HorizontalTextAlignment="Center" TextColor="Black"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+        <StackLayout Grid.Row="1" Spacing="10" Orientation="Horizontal" HorizontalOptions="Center" Padding="0,20">
+            <Button x:Name="BtnAceptar" Text="Aceptar" FontSize="26" FontFamily="Abo" TextColor="White" Padding="0,-3" CornerRadius="20" WidthRequest="100" HeightRequest="35" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource BlueAV}" Clicked="Boton_Aceptar"/>
+            <Button x:Name="BtnNo" IsVisible="false" Text="No" FontSize="26" FontFamily="Abo" TextColor="White" Padding="0,-3" CornerRadius="20" WidthRequest="100" HeightRequest="35" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Red}" Clicked="Boton_Cancelar"/>
+        </StackLayout>
+    </Grid>
+</rg:PopupPage>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:Avantxa.Renderers"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Avantxa.Vistas.SolicitudAdministrador"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:Avantxa"
+             BackgroundColor="#1c243e"
+             Padding="0,40,0,0">
+
+     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0" >
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Volver"
+                    TextColor="White"
+                    HorizontalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OnBackComman}"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                    x:Name="TituloPagina"
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    Text="Solicitudes"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Grid>
+            <ActivityIndicator x:Name="Act" IsVisible="false" IsRunning="False" Color="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <yummy:PancakeView
+            x:Name="Todo"
+            Margin="0,20,0,0"
+            Padding="30,50,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <StackLayout Spacing="20" x:Name="VMensaje">
+                        <Label
+                        FontFamily="Abo"
+                        FontAttributes="Bold"
+                        Margin="20,0,0,0"
+                        FontSize="22"
+                        Text="Escriba el mensaje de su solicitud"
+                        TextColor="#99A1B3"  />
+                        <yummy:PancakeView
+                        Padding="10,0,0,0"
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        CornerRadius="30"
+                        HeightRequest="150">
+                            <renderers:BorderlessEditor
+                            FontFamily="Abo"  
+                            x:Name="TMensaje"
+                            BackgroundColor="#EEEEFF"
+                            FontSize="22"
+                            Keyboard="Text"
+                            TextColor="#484848" />
+                        </yummy:PancakeView>
+                    </StackLayout>
+
+                    <!--Area fotos-->
+                    <StackLayout x:Name="Fotos" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                            FontFamily="Abo"   
+                            Margin="20,10,0,0"
+                            FontSize="22"
+                            Text="Agregue una foto a su solictud"
+                            TextColor="#99A1B3" />
+                    
+                            <yummy:PancakeView HorizontalOptions="EndAndExpand">
+                                <StackLayout Padding="0,6,0,0">
+                                    <Image Source="camara" WidthRequest="30"/>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TomarCamara" ></TapGestureRecognizer>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                           
+                            <yummy:PancakeView HorizontalOptions="EndAndExpand">
+                                <StackLayout Padding="0,6,0,0">
+                                    <Image Source="foto" WidthRequest="30"/>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TomarGaleria" ></TapGestureRecognizer>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        
+                        <!--Usar zoom en la imagen-->
+                        <Grid x:Name="GridFoto" IsVisible="false" BackgroundColor="Transparent">
+                            <yummy:PancakeView HorizontalOptions="FillAndExpand" Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}" CornerRadius="10" BackgroundColor="#EEEEFF">
+                                <local:ZoomGestureContainer>
+                                    <local:ZoomGestureContainer.Content>
+                                        <Image WidthRequest="400" HeightRequest="400" x:Name="image"></Image>
+                                    </local:ZoomGestureContainer.Content>
+                                </local:ZoomGestureContainer>
+                            </yummy:PancakeView>
+                        </Grid>
+                    </StackLayout>
+
+                    <!--Area botones-->
+                    <yummy:PancakeView
+                    x:Name="GEnviar"
+                    BackgroundColor="{StaticResource BlueAV}"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="200">
+                        <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        FontFamily="Abo"  
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Enviar"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" >
+                        </Label>
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Enviar" ></TapGestureRecognizer>
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>             
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

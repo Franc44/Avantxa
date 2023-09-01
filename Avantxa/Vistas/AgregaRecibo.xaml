@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+            x:Class="Avantxa.Vistas.AgregaRecibo"
+            Title="Recibo"
+            BackgroundColor="#1c243e">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 40, 0, 0" />
+                <On Platform="Android" Value="0, 40, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0" >
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Volver"
+                    TextColor="White"
+                    HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Volver"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    Text="Agregar recibo"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Grid>
+            <ActivityIndicator x:Name="Activity" IsVisible="false" IsRunning="False" Color="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <yummy:PancakeView
+            VerticalOptions="FillAndExpand"
+            x:Name="Todo"
+            Margin="0,0,0,0"
+            Padding="30,50,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40">
+                <StackLayout Spacing="30">
+                    <StackLayout>
+                        <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="24"
+                        Text="Seleccione el departamento:"
+                        TextColor="#99A1B3" />
+                        <yummy:PancakeView
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        Padding="10,0,0,0"
+                        BackgroundColor="#EEEEFF"
+                        CornerRadius="30"
+                        HeightRequest="50">
+                            <Picker BackgroundColor="#EEEEFF" x:Name="Deptos" TextColor="Black" FontSize="24" FontFamily="Abo" Title="Departamento" SelectedIndexChanged="Usuario_SelectedIndexChanged"/>
+                        </yummy:PancakeView>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="24"
+                        Text="Seleccione el concepto:"
+                        TextColor="#99A1B3" />
+                        <yummy:PancakeView
+                        Padding="10,0,0,0"
+                        BackgroundColor="#EEEEFF"
+                        CornerRadius="30"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                            <Picker BackgroundColor="#EEEEFF" x:Name="Concepto" TextColor="Black" FontSize="24" FontFamily="Abo" Title="Concepto" SelectedIndexChanged="Concepto_SelectedIndexChanged"/>
+                        </yummy:PancakeView>
+                    </StackLayout>
+                        <StackLayout x:Name="Numero" IsVisible="false">
+                            <Label
+                        FontFamily="Abo"    
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Introduzca el número de recibo"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        Padding="5,0,0,0"
+                        CornerRadius="30"              
+                        BackgroundColor="#EEEEFF"
+                        HeightRequest="50">
+                                <Entry
+                            FontFamily="Abo"
+                            x:Name="NoRecibo"
+                            FontSize="25"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Cantidad (Númerica y letra)"
+                        TextColor="#99A1B3" />
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="16"
+                        Text="Es necesario poner entre el número y la letra el signo ';'"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Cantidad"
+                            Placeholder="1,000.00;mil pesos"
+                            FontFamily="Abo"
+                            FontSize="25"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout x:Name="Periodo" IsVisible="false">
+                            <Label
+                                FontFamily="Abo"    
+                                Margin="20,10,0,0"
+                                FontSize="24"
+                                Text="Seleccione los periodos: "
+                                TextColor="#99A1B3" />
+                           <Label
+                                FontFamily="Abo"    
+                                Margin="20,10,0,0"
+                                FontSize="24"
+                                Text="Fecha inicial: "
+                                TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                                Padding="10,0,0,0"
+                                Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                                BackgroundColor="#EEEEFF"
+                                CornerRadius="30"
+                                HeightRequest="50">
+                                <DatePicker x:Name="DatePicker" BackgroundColor="#EEEEFF" TextColor="Black" HeightRequest="50" FontFamily="Abo" FontSize="24" Format="dd/MM/yyyy" MinimumDate="01/01/2020" MaximumDate="12/31/2022" DateSelected="SeleccionFecha"  />
+                            </yummy:PancakeView>
+                            <Label
+                                FontFamily="Abo"    
+                                Margin="20,10,0,0"
+                                FontSize="24"
+                                Text="Fecha final: "
+                                TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                                Padding="10,0,0,0"
+                                Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                                BackgroundColor="#EEEEFF"
+                                CornerRadius="30"
+                                HeightRequest="50">
+                                <DatePicker x:Name="DatePicker1" BackgroundColor="#EEEEFF" TextColor="Black" HeightRequest="50" FontFamily="Abo" FontSize="24" Format="dd/MM/yyyy" MinimumDate="01/01/2020" MaximumDate="12/31/2022" DateSelected="SeleccionFecha1"  />
+                            </yummy:PancakeView>
+                        </StackLayout>
+
+                    <yummy:PancakeView
+                    x:Name="Registro"
+                    BackgroundColor="{StaticResource BlueAV}"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="150">
+                        <Label
+                        FontFamily="Abo"   
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Enviar"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" >
+                        </Label>
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Agrega" ></TapGestureRecognizer>
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

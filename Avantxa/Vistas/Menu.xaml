@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             x:Class="Avantxa.Menu">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, -48, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid Margin="0,0,0,0">
+                <Image Source="app2"></Image>
+                <StackLayout Margin="{OnPlatform Android='20,10,20,0', iOS='20,40,20,0'}">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label
+                        Text="Salir"
+                        HeightRequest="40"
+                        HorizontalOptions="End"
+                        FontSize="20"
+                        FontFamily="Abo"
+                        TextColor="White">
+                        <Label.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS" Value="0, 20, 0, 0" />
+                                <On Platform="Android" Value="0, 15, 0, 0" />
+                            </OnPlatform>
+                        </Label.Padding>
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CerrarSesion" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                        <yummy:PancakeView HorizontalOptions="End">
+                                <StackLayout Padding="0,15,0,0">
+                                    <Image Source="cerrar" WidthRequest="25"/>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="CerrarSesion" ></TapGestureRecognizer>
+                                </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                    </StackLayout>
+                    <Label
+                        Padding="0,30,0,0"
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Bienvenido"
+                        TextColor="White"
+                        FontFamily="Abo"
+                        WidthRequest="110" />
+                    <Label
+                        Padding="0,15,0,0"
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        HorizontalOptions="StartAndExpand"
+                        x:Name="Usuario"
+                        TextColor="White"
+                        FontFamily="Abo"
+                        WidthRequest="200" />
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView
+                Margin="0,0,0,0"
+                BackgroundColor="White"
+                CornerRadius="0,0,40,40"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <yummy:PancakeView
+                    BackgroundColor="#1c243e"
+                    CornerRadius="20"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    HeightRequest="45"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="260">  
+                    <Label
+                        Margin="7"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="¿Qué deseas hacer?"
+                        TextColor="White"
+                        FontFamily="Abo"
+                        VerticalOptions="Center" />
+                    </yummy:PancakeView>
+                    <Grid Margin="5" ColumnSpacing="0" RowSpacing="-15" Padding="0,0,0,0" HorizontalOptions="FillAndExpand">
+                        <yummy:PancakeView BackgroundColor="#73e1bc" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#00dba8" Offset="0" />
+                                         <yummy:GradientStop Color="#00d8a5" Offset="0.5" />
+                                         <yummy:GradientStop Color="#00d1a2" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Solicitudes" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="im21" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="1"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="Solicitud" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView x:Name="VerSeguimientos" Grid.Row="1" BackgroundColor="#b6b6e9" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#9c66e9" Offset="0" />
+                                         <yummy:GradientStop Color="#9167e9" Offset="0.5" />
+                                         <yummy:GradientStop Color="#806ae9" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Seguimientos" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="im31" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="1"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Seguimientos" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView x:Name="VerVisitas" IsVisible="false" Grid.Row="1" BackgroundColor="#b6b6e9" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#9c66e9" Offset="0" />
+                                         <yummy:GradientStop Color="#9167e9" Offset="0.5" />
+                                         <yummy:GradientStop Color="#806ae9" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Visitas" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="im31" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="1"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="VerVisita" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView Grid.Row="4" BackgroundColor="#f6a9a5" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#fc1057" Offset="0" />
+                                         <yummy:GradientStop Color="#fe0048" Offset="0.5" />
+                                         <yummy:GradientStop Color="#ff0038" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Calendario" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="calendario2" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="10" />
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Calendario" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView Grid.Row="6" BackgroundColor="#f2ab59" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#f37b00" Offset="0" />
+                                         <yummy:GradientStop Color="#f37600" Offset="0.5" />
+                                         <yummy:GradientStop Color="#f36900" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Contacto" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="contacto2" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="10"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Emergencia" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView Grid.Row="3" BackgroundColor="#77bfcc" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#00a4c8" Offset="0" />
+                                         <yummy:GradientStop Color="#009fc8" Offset="0.5" />
+                                         <yummy:GradientStop Color="#0095c8" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Recibos" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="factura" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="5  "/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="RecibosPago" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView Grid.Row="2" BackgroundColor="#C0DFD6" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                        <yummy:GradientStopCollection>
+                                            <yummy:GradientStop Color="#13B095" Offset="0" />
+                                            <yummy:GradientStop Color="#13AD93" Offset="0.5" />
+                                            <yummy:GradientStop Color="#13AB92" Offset="1" />
+                                        </yummy:GradientStopCollection>
+                                    </yummy:PancakeView.BackgroundGradientStops>
+                                    <Label Text="Chat" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="chat1" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="10"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Chat" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView Grid.Row="5" BackgroundColor="#F18BA9" Shadow="{yummy:ShadowMarkup BlurRadius=10}" CornerRadius="15" HorizontalOptions="FillAndExpand" Margin="20,20,20,20">
+                            <StackLayout Orientation="Horizontal">
+                                <yummy:PancakeView BackgroundGradientStartPoint="0,0" BackgroundGradientEndPoint="1,0" CornerRadius="15,45,15,45" HorizontalOptions="FillAndExpand">
+                                    <yummy:PancakeView.BackgroundGradientStops>
+                                      <yummy:GradientStopCollection>
+                                         <yummy:GradientStop Color="#FD306C" Offset="0" />
+                                         <yummy:GradientStop Color="#FD316C" Offset="0.5" />
+                                         <yummy:GradientStop Color="#FE356F" Offset="1" />
+                                      </yummy:GradientStopCollection>
+                                   </yummy:PancakeView.BackgroundGradientStops>
+                                   <Label Text="Anuncios" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontFamily="Abo" FontSize="36"/>
+                                </yummy:PancakeView>
+                                <Image Source="alerta" WidthRequest="60" HorizontalOptions="FillAndExpand" Margin="5"/>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Anuncios" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                    </Grid>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

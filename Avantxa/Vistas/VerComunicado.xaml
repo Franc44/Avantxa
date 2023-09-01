@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Avantxa.Vistas.VerComunicado"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:local="clr-namespace:Avantxa.Renderers"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, -48, 0, 0" />
+                <On Platform="Android" Value="0, -12, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid Margin="0,0,0,0">
+                <Image Source="Fondo"/>
+                <StackLayout Margin="{OnPlatform Android='20,10,20,0', iOS='20,40,20,0'}">
+                    <StackLayout>
+                        <Label
+                        FontFamily="Abo"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Volver"
+                        TextColor="Black"
+                        HorizontalOptions="Start"
+                        Margin="0,15">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnVolver}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Image Source="AvantxaLogo" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="250"/>
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView
+                x:Name="Texto"
+                IsVisible="false"
+                Margin="0,0,0,0"
+                Padding="30,0,30,30"
+                BackgroundColor="White"
+                CornerRadius="0,0,40,40"
+                VerticalOptions="FillAndExpand">
+                <StackLayout Margin="20,20">
+                    <Label x:Name="TAsunto"  HorizontalTextAlignment="End" FontFamily="Abo" FontSize="Medium" TextColor="Black"/>
+                    <Label x:Name="TPara" HorizontalTextAlignment="Start" FontFamily="Abo" FontSize="Medium" TextColor="Black" Margin="0,20"/>
+                    <local:CustomLabel x:Name="TMensaje" FontFamily="Abo" FontSize="Medium" TextColor="Black" Margin="0,20"/>
+                    <Label Text="Atentamente" HorizontalTextAlignment="Center" FontFamily="Abo" FontSize="Medium" TextColor="Black" Margin="0,20"/>
+                    <Label Text="AVANTXA SOLUCIONES S.A DE C.V" HorizontalTextAlignment="Center" FontFamily="Abo" FontSize="Medium" TextColor="Black"/>
+                    <Label Text="Condominio Abetos 233" HorizontalTextAlignment="End" FontFamily="Abo" FontSize="Medium" TextColor="Black" Margin="0,40,0,0"/>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Avantxa.Seguimientos"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#1c243e"
+             Padding="0,40,0,0">
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0">
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        FontFamily="Abo"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Volver"
+                        TextColor="White"
+                        HorizontalOptions="StartAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label
+                        x:Name="BSolicitud"
+                        IsVisible="false"
+                        FontFamily="Abo"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Solicitud"
+                        TextColor="White"
+                        HorizontalOptions="EndAndExpand">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OnSolicitudCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Label
+                    x:Name="Titulo"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    FontFamily="Abo"
+                    Text=""
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView 
+            Margin="0,20,0,0"
+            Padding="30,50,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <StackLayout Spacing="20" x:Name="ListaVisitas">
+                        <ListView x:Name="List" Margin="20" BackgroundColor="White" IsPullToRefreshEnabled="True" WidthRequest="1000">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Height="60">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout x:Name="Stack1" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Depto}"  FontAttributes="Bold" FontSize="16" TextColor="Black" FontFamily="Abo" HorizontalTextAlignment="Start"/>
+                                                <Label Text="{Binding Fecha}"  FontAttributes="Bold" FontSize="13" TextColor="Black" FontFamily="Abo" HorizontalTextAlignment="Start"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                                <Label  Text="{Binding Estatus}"  FontAttributes="Bold" FontFamily="Abo" FontSize="16" TextColor="Blue" HorizontalTextAlignment="End"/>
+                                                <Label Text="{Binding Motivo}" FontAttributes="Bold" FontSize="13" TextColor="Black"  FontFamily="Abo" HorizontalTextAlignment="End"/>
+                                            </StackLayout>
+                                            <StackLayout Padding="10,10,0,0" HorizontalOptions="EndAndExpand">
+                                                 <Image Source="clic" WidthRequest="30"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

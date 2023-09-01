@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:Avantxa.Renderers"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Avantxa.Emergencia"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#1c243e"
+             Padding="0,40,0,0">
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Grid Margin="0,0,0,0">
+                <StackLayout Margin="20,0,20,0" Spacing="20">
+                    <Label
+                    FontFamily="Abo"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Volver"
+                    TextColor="White"
+                    HorizontalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Volver"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Números de emergencia"
+                        FontFamily="Abo"
+                        TextColor="White"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="200" />
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView
+                Margin="0,30,0,0"
+                Padding="30,30,30,30"
+                BackgroundColor="White"
+                CornerRadius="40,40,40,40"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Grid Margin="5" ColumnSpacing="20" RowSpacing="30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="230" />
+                            <RowDefinition Height="230" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="10"
+                            BackgroundColor="GhostWhite"
+                            Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="emer" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontFamily="Abo"
+                                    Text="Llamar"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" >
+                                </Label>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Emergencias" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="10"
+                            BackgroundColor="GhostWhite"
+                            CornerRadius="15"
+                            Shadow="{yummy:ShadowMarkup BlurRadius=15}">
+                            <StackLayout>
+                                <Image Source="Den" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontFamily="Abo"
+                                    Text="Llamar"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" >
+                                </Label>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Denuncia" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="10"
+                            BackgroundColor="GhostWhite"
+                            Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="Loc" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontFamily="Abo"
+                                    Text="Llamar"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" >
+                                </Label>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Locatel" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="10"
+                            BackgroundColor="GhostWhite"
+                            CornerRadius="15"
+                            Shadow="{yummy:ShadowMarkup BlurRadius=15}">
+                            <StackLayout>
+                                <Image Source="Civil" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    FontFamily="Abo"
+                                    Text="Llamar"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" >
+                                </Label>
+                            </StackLayout>
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="PC" ></TapGestureRecognizer>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+                    </Grid>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

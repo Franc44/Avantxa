@@ -1,0 +1,40 @@
+﻿<Properties StartupConfiguration="{9BDCB353-C45A-483C-B108-F5F3FB472808}|Default" HasHotReloadOverlayBeenDismissed="True">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Avantxa/Constants.cs" Line="234" Column="1" IsPinned="True" />
+      <File FileName="Avantxa.Android/Properties/AndroidManifest.xml" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Avantxa" expanded="True">
+            <Node name="Avantxa" expanded="True" />
+            <Node name="Avantxa.Android" expanded="True" selected="True">
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.ItemProperties.Avantxa.iOS automaticSigning="True" TriggeredFromHotReload="False" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D0B9E19F-02C3-420B-B7F2-58F2B6F78EFB" Xamarin.HotReload.UnhandledDeviceException.Avantxa.iOS.HideInfoBar="True">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="933ZU2XARD" TeamId="FV52H278KK" />
+  </MonoDevelop.Ide.ItemProperties.Avantxa.iOS>
+  <Debugger.DebugSourceFolders />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Vistas/ChatBox.xaml.cs" relfile="Avantxa/Vistas/ChatBox.xaml.cs" line="36" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Vistas/ChatBox.xaml.cs" relfile="Avantxa/Vistas/ChatBox.xaml.cs" line="38" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Constants.cs" relfile="Avantxa/Constants.cs" line="732" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Constants.cs" relfile="Avantxa/Constants.cs" line="734" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Constants.cs" relfile="Avantxa/Constants.cs" line="736" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Constants.cs" relfile="Avantxa/Constants.cs" line="737" column="1" />
+      <Breakpoint file="/Users/maxal2/Desktop/APP/Avantxa/Avantxa/Constants.cs" relfile="Avantxa/Constants.cs" line="753" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Avantxa.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" TriggeredFromHotReload="False" Xamarin.HotReload.UnhandledDeviceException.Avantxa.Android.HideInfoBar="True" PreferredExecutionTarget="Android.SelectDevice" />
+  <AuthorInfo Name="Maxal FRM4" Email="" Copyright="" Company="" Trademark="" />
+</Properties>

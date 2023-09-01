@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Avantxa.Vistas.VerVisitas"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="#1c243e"
+             Padding="0,40,0,0">
+
+     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0">
+                
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="Abo"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Volver"
+                        TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Volver" ></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label
+                        HorizontalOptions="EndAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="40"
+                        Text="+"
+                        TextColor="White">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Agregar" ></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Label
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    FontFamily="Abo"
+                    Text="Todas las visitas"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView 
+            Margin="0,20,0,0"
+            Padding="30,50,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <StackLayout Spacing="20">
+                        <ListView x:Name="List" Margin="20" HasUnevenRows = "true" BackgroundColor="White" IsPullToRefreshEnabled="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell Height="60">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout Margin="0,0,0,0" Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Nombre}"  FontAttributes="Bold" FontFamily="Abo" TextColor="Black">
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform ="iOS" Value="18"/>
+                                                                <On Platform ="Android" Value="18"/>
+                                                            </OnPlatform>
+                                                        </Label.FontSize>
+                                                    </Label>
+                                                    <Label  Text="{Binding Departamento}" Padding="0,0,0,0"  FontAttributes="Bold" FontFamily="Abo" TextColor="Black" HorizontalTextAlignment="End">
+                                                        <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform ="iOS" Value="18"/>
+                                                                <On Platform ="Android" Value="18"/>
+                                                            </OnPlatform>
+                                                        </Label.FontSize>
+                                                    </Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding HoraEntrada}"  FontAttributes="Bold" FontSize="18" FontFamily="Abo" TextColor="Black"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout Padding="-20,5,0,0" HorizontalOptions="EndAndExpand">
+                                                 <Image Source="clic" WidthRequest="30"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

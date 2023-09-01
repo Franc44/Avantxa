@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:renderers="clr-namespace:Avantxa.Renderers"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             mc:Ignorable="d"
+             x:Class="Avantxa.CrearCuenta"
+             BackgroundColor="White">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, -48, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout >
+            <Grid  Margin="0,0,0,0"> 
+                <Image Source="app1"/>
+                <StackLayout Margin="20,10,20,0" Spacing="20">
+                    <Label
+                    Margin="0,50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    FontFamily="Abo"
+                    Text="Volver"
+                    TextColor="Black"
+                    VerticalOptions="Start">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Volver" ></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label
+                    FontFamily="Abo"   
+                    x:Name="Titulo"    
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    Text="Registro           "
+                    TextColor="Black"
+                    VerticalOptions="Start" />
+                </StackLayout>
+            </Grid>
+            <yummy:PancakeView  
+            Margin="0,0,0,0"
+            Padding="30,0,30,30"
+            BackgroundColor="White"
+            CornerRadius="40,40,40,40"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Spacing="30">
+                    <!-- Sección de verificación de datos-->
+                    <StackLayout  x:Name="GUsuario">
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"    
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Usuario"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        Padding="5,0,0,0"
+                        CornerRadius="30"              
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            FontFamily="Abo"
+                             x:Name="Usuario"
+                            FontSize="25"
+                            ClearButtonVisibility="WhileEditing"
+                            Keyboard="Email"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Clave"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Clave"
+                            FontFamily="Abo"
+                            FontSize="25"
+                             ClearButtonVisibility="WhileEditing"
+                            IsPassword="True"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+                    <!-- Sección de Actualización de datos -->
+                    <StackLayout x:Name="GActualizar" IsVisible="false">
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,0,0,0"
+                        FontSize="25"
+                        Text="Nombre"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"  
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Nombre"
+                            FontFamily="Abo"    
+                            FontSize="25"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Apellido Paterno"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30" 
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Paterno"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout  >
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Apellido Materno"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Materno"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Unidad Habitacional"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                            <Picker BackgroundColor="#EEEEFF" x:Name="UNIDAD" TextColor="Black" FontSize="24" FontFamily="Abo" Title="Seleccione una Unidad Habitacional" SelectedIndexChanged="UNIDAD_SelectedIndexChanged"/>
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Edificio"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"   
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Edificio"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"                                   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Departamento"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"   
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Departamento"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Correo Electrónico"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"     
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Correo"
+                            Keyboard="Email"
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Contraseña"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30"     
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            x:Name="Contra"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            IsPassword="True" 
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label
+                        FontFamily="Abo"   
+                        Margin="20,10,0,0"
+                        FontSize="25"
+                        Text="Confirma tu contraseña"
+                        TextColor="#99A1B3" />
+                            <yummy:PancakeView
+                        CornerRadius="30" 
+                        Padding="5,0,0,0"        
+                        BackgroundColor="#EEEEFF"
+                        Border="{yummy:BorderMarkup Color=#B2C1F7, Thickness='2'}"
+                        HeightRequest="50">
+                                <Entry
+                            IsPassword="True" 
+                            x:Name="Contra1"   
+                            FontSize="25"
+                            FontFamily="Abo"
+                            ClearButtonVisibility="WhileEditing"
+                            BackgroundColor="#EEEEFF"
+                            TextColor="#484848" />
+                            </yummy:PancakeView>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!-- Sección de Actualización de Botones -->
+                    <yummy:PancakeView
+                    x:Name="Verificar"
+                    BackgroundColor="{StaticResource BlueAV}"
+                    CornerRadius="25"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="150">
+                        <Label
+                        FontFamily="Abo"   
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Aceptar"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" >
+                        </Label>
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Crear" ></TapGestureRecognizer>
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                    <yummy:PancakeView
+                    x:Name="Registro"
+                    IsVisible="False"
+                    BackgroundColor="{StaticResource BlueAV}"
+                    Shadow="{yummy:ShadowMarkup BlurRadius=15}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="150">
+                        <Label
+                        FontFamily="Abo"   
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Registrar"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" >
+                        </Label>
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Registrar" ></TapGestureRecognizer>
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                    <ActivityIndicator x:Name="Act" IsRunning="False" Color="{StaticResource BlueAV}"/>
+                </StackLayout>
+            </yummy:PancakeView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
